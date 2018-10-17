@@ -20,13 +20,13 @@ Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) 
 	14 - Adam-Moulton (1ª Ordem)
 	15 - Adam-Moulton (2ª Ordem)
 	16 - Adam-Moulton (3ª Ordem)
-	<em>17</em> - Adam-Moulton (4ª Ordem)
+	 - Adam-Moulton (4ª Ordem)
 	18 - Adam-Moulton (5ª Ordem)
 	19 - Adam-Moulton (6ª Ordem)
   	20 - Adam-Moulton (7ª Ordem)
   	21 - Adam-Moulton (8ª Ordem)
 ```
-
+<em>17</em>
 ## Informações Gerais
 
 ### Dependências
