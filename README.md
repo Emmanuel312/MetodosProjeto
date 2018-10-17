@@ -35,8 +35,8 @@ Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) 
 
 ### Dependências
 
-Para executar o programa é necessário estar em ambiente ***Linux*** e com a biblioteca [Simpy](http://docs.sympy.org/latest/install.html) e [Matplotlib] (http://matplotlib.org/users/installing.html) instalada em sua máquina.[Matplotlib](http://matplotlib.org/users/installing.html)
-
+Para executar o programa é necessário estar em ambiente ***Linux*** e com a biblioteca [Simpy](http://docs.sympy.org/latest/install.html) e o [Matplotlib](http://matplotlib.org/users/installing.html)
+instalados em sua máquina.
 ### Executando o Código
 
 ```
@@ -46,27 +46,21 @@ $ python3 metodos.py
 
 ### Entradas
 
-É feita atraves de um arquivo de texto com o nome arquivo.txt 
+É feita atraves de um arquivo de texto com o nome arquivo.txt e estando no mesmo diretorio do arquivo de codigo
 
 Deverá ter o seguinte formato:
 
 ```
-(número referente ao método escolhido)
-dF(y, t)/dt
-t0
-Y(0)
-h
-tf
-grau (Se o método escolhido for Adams-Bashforth ou Adams-Moulton, o campo deve ficar vazio caso contrário)
-```
-
-Exemplo de entrada:
-
-```
-1
-1 - t + 4*y
-0
-1
-0.05
-1
+(nome referente ao método escolhido) y0 t0 h quantidade_de_passos dF(y, t)/dt grau (Se o método escolhido for Adams-Bashforth, Adams-Moulton ou Forumula-Inversa o campo deve ficar vazio caso contrário)
+Ex :
+euler 0 0 0.1 20 1-t+4*y
+euler_inverso 0 0 0.1 20 1-t+4*y
+# caso especial dado valores iniciais siga o exemplo
+adam_bashforth 0.0 0.1 0.23 0.402 0.6328 0 0.1 20 1-t+4*y 5 
+adam_multon 0.0 0.1 0.23 0.402 0.6328 0 0.1 20 1-t+4*y 6
+formula_inversa 0.0 0.1 0.23 0.402 0.6328 0 0.1 20 1-t+4*y 6
+##############
+adam_bashforth_by_runge_kutta 0 0 0.1 20 1-t+4*y 6
+adam_multon_by_euler_aprimorado 0 0 0.1 20 1-t+4*y 6
+formula_inversa_by_euler_aprimorado 0 0 0.1 20 1-t+4*y 6
 ```
