@@ -31,15 +31,11 @@ Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) 
 	
 ```
 
-
-
-
-	
 ## Informações Gerais
 
 ### Dependências
 
-Para executar o programa é necessário estar em ambiente ***Linux*** e com a biblioteca [Simpy](http://docs.sympy.org/latest/install.html) instalada em sua máquina.
+Para executar o programa é necessário estar em ambiente ***Linux*** e com a biblioteca [Simpy](http://docs.sympy.org/latest/install.html) e [Matplotlib] (https://matplotlib.org/users/installing.html) instalada em sua máquina.
 
 ### Executando o Código
 	cu
