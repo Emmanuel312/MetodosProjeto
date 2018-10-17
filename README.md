@@ -25,6 +25,7 @@ Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) 
 	19 - Adam-Moulton (6ª Ordem)
   	20 - Adam-Moulton (7ª Ordem)
   	21 - Adam-Moulton (8ª Ordem) 
+	oakdosk
 ```
 
 
