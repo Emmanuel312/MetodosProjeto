@@ -46,7 +46,7 @@ $ python3 metodos.py
 
 ### Entradas
 
-É feita atraves de um arquivo de texto com o nome arquivo.txt e estando no mesmo diretorio do arquivo de codigo
+É feita atraves de um arquivo de texto com o nome arquivo.txt e estando no mesmo diretorio do arquivo de codigo-fonte
 
 Deverá ter o seguinte formato:
 
@@ -55,12 +55,17 @@ Deverá ter o seguinte formato:
 Ex :
 euler 0 0 0.1 20 1-t+4*y
 euler_inverso 0 0 0.1 20 1-t+4*y
-# caso especial dado valores iniciais siga o exemplo
+# casos especiais dado valores iniciais siga o exemplo
 adam_bashforth 0.0 0.1 0.23 0.402 0.6328 0 0.1 20 1-t+4*y 5 
 adam_multon 0.0 0.1 0.23 0.402 0.6328 0 0.1 20 1-t+4*y 6
 formula_inversa 0.0 0.1 0.23 0.402 0.6328 0 0.1 20 1-t+4*y 6
-##############
+#
 adam_bashforth_by_runge_kutta 0 0 0.1 20 1-t+4*y 6
 adam_multon_by_euler_aprimorado 0 0 0.1 20 1-t+4*y 6
 formula_inversa_by_euler_aprimorado 0 0 0.1 20 1-t+4*y 6
 ```
+### Saida
+
+A saida é salva em um arquivo com o nome resultado.txt no mesmo diretorio do arquivo de codigo-fonte.
+Os graficos são salvos em um diretorio chamado **graficos** onde o mesmo contem os arquivos de foto com o nome **figure numero.png**.
+
