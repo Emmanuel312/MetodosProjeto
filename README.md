@@ -35,10 +35,10 @@ Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) 
 
 ### Dependências
 
-Para executar o programa é necessário estar em ambiente ***Linux*** e com a biblioteca [Simpy](http://docs.sympy.org/latest/install.html) e [Matplotlib] (https://matplotlib.org/users/installing.html) instalada em sua máquina.
+Para executar o programa é necessário estar em ambiente ***Linux*** e com a biblioteca [Simpy](http://docs.sympy.org/latest/install.html) e [Matplotlib] (http://matplotlib.org/users/installing.html) instalada em sua máquina.[Matplotlib](http://matplotlib.org/users/installing.html)
 
 ### Executando o Código
-	cu
+
 ```
 $ python3 metodos.py
 
@@ -46,13 +46,7 @@ $ python3 metodos.py
 
 ### Entradas
 
-É possível de duas formas:
-
-#### Diretamente pelo terminal
-
-Basta digitar os valores que são pedidos no terminal
-
-#### Através de arquivo texto
+É feita atraves de um arquivo de texto com o nome arquivo.txt 
 
 Deverá ter o seguinte formato:
 
