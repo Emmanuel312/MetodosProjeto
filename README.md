@@ -9,23 +9,26 @@ Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) 
 	2 - Euler Inverso
 	3 - Euler Aprimorado
 	4 - Runge-Kutta  
-	5 - Adam-Bashforth (1ª Ordem)
-	6 - Adam-Bashforth (2ª Ordem)
-	7 - Adam-Bashforth (3ª Ordem)
-	8 - Adam-Bashforth (4ª Ordem)
-	9 - Adam-Bashforth (5ª Ordem)
-	10 - Adam-Bashforth (6ª Ordem)
-  	11 - Adam-Bashforth (7ª Ordem)
-  	12 - Adam-Bashforth (8ª Ordem)
-	14 - Adam-Moulton (1ª Ordem)
-	15 - Adam-Moulton (2ª Ordem)
-	16 - Adam-Moulton (3ª Ordem)
-	**17**- Adam-Moulton (4ª Ordem)
-	18 - Adam-Moulton (5ª Ordem)
-	19 - Adam-Moulton (6ª Ordem)
-  	20 - Adam-Moulton (7ª Ordem)
-  	21 - Adam-Moulton (8ª Ordem) 
-	oakdosk
+	5 - Adam-Bashforth (2ª Ordem)
+	6 - Adam-Bashforth (3ª Ordem)
+	7 - Adam-Bashforth (4ª Ordem)
+	8 - Adam-Bashforth (5ª Ordem)
+	9 - Adam-Bashforth (6ª Ordem)
+  	10 - Adam-Bashforth (7ª Ordem)
+  	11 - Adam-Bashforth (8ª Ordem)
+	12 - Adam-Moulton (2ª Ordem)
+	14 - Adam-Moulton (3ª Ordem)
+	15 - Adam-Moulton (4ª Ordem)
+	16 - Adam-Moulton (5ª Ordem)
+>>>>>  	17 - Adam-Moulton (6ª Ordem)   >>>>>
+  	18 - Adam-Moulton (7ª Ordem)
+  	19 - Adam-Moulton (8ª Ordem)
+	20 - Formula-Inversa (2ª Ordem)
+	21 - Formula-Inversa (3ª Ordem)
+	22 - Formula-Inversa (4ª Ordem)
+	23 - Formula-Inversa (5ª Ordem)
+	24 - Formula-Inversa (6ª Ordem)
+	
 ```
 
 
