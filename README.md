@@ -1,4 +1,4 @@
-# MetodosNumericos
+						# Metodos Numericos
 
 Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) utilizando a linguagem de programação Python
 
