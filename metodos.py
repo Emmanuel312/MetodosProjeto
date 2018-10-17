@@ -1,5 +1,6 @@
 from sympy import *
 import matplotlib.pyplot as plt
+import os
 
 #globais 
 y,t = symbols('y t')
@@ -8,6 +9,7 @@ listaY = []
 arq = open('arquivo.txt','r')
 arq_save = open('resultado.txt','w+')
 count = 0
+os.mkdir('graficos')
 
 def plotG(): # funcao responsavel por printar os graficos
 	plt.style.use('ggplot')
