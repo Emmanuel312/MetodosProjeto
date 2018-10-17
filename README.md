@@ -21,14 +21,14 @@ Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) 
 	15 - Adam-Moulton (2ª Ordem)
 	16 - Adam-Moulton (3ª Ordem)
 
+```
 
-	<em>17</em>- Adam-Moulton (4ª Ordem)
-```	 
-	18 - Adam-Moulton (5ª Ordem)
-	19 - Adam-Moulton (6ª Ordem)
-  	20 - Adam-Moulton (7ª Ordem)
-  	21 - Adam-Moulton (8ª Ordem)
 
+
+
+<em>17</em>- Adam-Moulton (4ª Ordem)
+	 
+	
 ## Informações Gerais
 
 ### Dependências
@@ -36,7 +36,7 @@ Aplicações dos Métodos Numéricos feitos por Emmanuel Nery (efn@cin.ufpe.br) 
 Para executar o programa é necessário estar em ambiente ***Linux*** e com a biblioteca [Simpy](http://docs.sympy.org/latest/install.html) instalada em sua máquina.
 
 ### Executando o Código
-
+	cu
 ```
 $ python3 metodos.py
 
