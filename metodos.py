@@ -27,68 +27,68 @@ def plotG(): # funcao responsavel por printar os graficos
 	listaT.clear() # apagando as listas
 	listaY.clear()
 
-def euler(expr,y0,t0,h,qnt):
-	yn = y0
+def euler(expr,y0,t0,h,qnt): # funcao que recebe como parametro a expressao(variavel do tipo sympy) e as informações necessarias.
+	yn = y0 # ambas atribuições iniciais sao feita pois ao longo do calculo tanto o yn quanto o tn é incrementado.
 	tn = t0
-	listaY.append(yn)
+	listaY.append(yn) # salvando nas respectivas listas globais para mais tarde printar/plotar.
 	listaT.append(tn)
-	for i in range(qnt):
-		expa = expr.subs([(t,tn),(y,yn)])
-		yn += expa*h
-		tn += h
-		listaY.append(yn)
+	for i in range(qnt): # laço que vai calcular ate o numero de vezes informada
+		expa = expr.subs([(t,tn),(y,yn)]) # utilizando subs da sympy a expressao vai ficar com os valores de tn e yn atual = fn
+		yn += expa*h # formula de euler yn+1 = yn * fn*h --> incremento de yn
+		tn += h # incremento de tn
+		listaY.append(yn) # salvando nas listas
 		listaT.append(tn)
-'''
-def euler_inverso_implicito(expr,y0,t0,h,qnt): # yn+1 = yn + fn+1*h
+
+def euler_inverso_implicito(expr,y0,t0,h,qnt): # versao alternativa sem previsao e implicita (bonus)
 	yn = y0
 	tn = t0
 	listaY.append(yn)
 	listaT.append(tn)
 	for i in range(qnt):
 		tn += h
-		yn += expr.subs(t,tn) * h
-		yn = solve(Eq(y,yn),y) # y = f(y)
-		yn = yn[0]
-		listaY.append(yn)
-		listaT.append(tn)
-'''
-def euler_inverso(expr,y0,t0,h,qnt): # yn+1 = yn + fn+1*h
-	yn = y0
-	tn = t0
-	listaY.append(yn)
-	listaT.append(tn)
-	for i in range(qnt):
-		tn += h
-		expa = expr.subs([(t,tn),(y,yn)])
-		aux = yn + expa*h
-		yn += h*expr.subs([(t,tn),(y,aux)])
+		yn += expr.subs(t,tn) * h # y = f(y) como aqui vai ser implicita primeiro deixo em funcao apenas de y 
+		yn = solve(Eq(y,yn),y) # e aqui resolvo implicitamente com solve
+		yn = yn[0] # solve retorna uma lista, o real valor esta na posicao 0 da lista
 		listaY.append(yn)
 		listaT.append(tn)
 
-def euler_aprimorado(expr,y0,t0,h,qnt):
+def euler_inverso(expr,y0,t0,h,qnt): # para evitar a redundancia, irei apenas explicar onde as proximas funçoes se diferenciam 
 	yn = y0
 	tn = t0
 	listaY.append(yn)
 	listaT.append(tn)
 	for i in range(qnt):
-		a = expr.subs([(t,tn),(y,yn)])
-		b = expr.subs([(t,tn+h),(y,yn + h*a)])
-		yn += ((a+b)/2) * h
+		expa = expr.subs([(t,tn),(y,yn)]) # aqui calculo o yn para utilizar a previsao e jogar na equação do euler inverso
+		aux = yn + expa*h # isso seria o yn+1 (previsao)
+		tn += h # incrementando o tn  
+		yn += h*expr.subs([(t,tn),(y,aux)]) # yn+1 = yn + fn+1*h 
+		listaY.append(yn)
+		listaT.append(tn)
+
+def euler_aprimorado(expr,y0,t0,h,qnt): # com previsao
+	yn = y0 
+	tn = t0
+	listaY.append(yn)
+	listaT.append(tn)
+	for i in range(qnt):
+		a = expr.subs([(t,tn),(y,yn)]) # fn
+		b = expr.subs([(t,tn+h),(y,yn + h*a)]) # fn+1 
+		yn += ((a+b)/2) * h # formula do aprimorado media entre os dois euler anteriores
 		tn += h
 		listaY.append(yn)
 		listaT.append(tn)
 
-def runge_kutta(expr,y0,t0,h,qnt):
+def runge_kutta(expr,y0,t0,h,qnt): # funcao runge kutta 4 ordem
 	yn = y0
 	tn = t0
 	listaY.append(yn)
 	listaT.append(tn)
-	for i in range(qnt):
+	for i in range(qnt): # todos os k's sao da formula de runge-kutta 4 ordem
 		k1 = expr.subs([(t,tn),(y,yn)]) # f(tn,yn)
 		k2 = expr.subs([(t,tn + (h/2) ),(y,yn + ((h/2)*k1))])
 		k3 = expr.subs([(t,tn + (h/2) ),(y,yn + ((h/2)*k2))])
 		k4 = expr.subs([(t,tn + h),(y,yn + h*k3)])
-		yn += (h/6) * (k1 + (2*k2) + (2*k3) + k4)
+		yn += (h/6) * (k1 + (2*k2) + (2*k3) + k4) # media ponderada entre os k's dando prioridade aos 2 do meio
 		tn += h
 		listaY.append(yn)
 		listaT.append(tn)
@@ -103,13 +103,13 @@ def calcular_por_metodos_anteriores(expr,y0,t0,h,qnt,grau,metodo):
 	elif metodo == 'runge_kutta' :
 		runge_kutta(expr,y0,t0,h,grau-1)
 
-def adam_bashforth(expr,y0,t0,h,qnt,grau,metodo='nenhum'):
-	if metodo != 'nenhum':
-		calcular_por_metodos_anteriores(expr,y0,t0,h,qnt,grau,metodo)
-	yn = listaY[grau-1]
+def adam_bashforth(expr,y0,t0,h,qnt,grau,metodo='nenhum'): # metodos de multiplos passos necessitam do numero do grau 
+	if metodo != 'nenhum': # parametro opcional caso nenhum metodo seja informado devera ser informado os pontos iniciais
+		calcular_por_metodos_anteriores(expr,y0,t0,h,qnt,grau,metodo) # nesse if essa funcao vai calcular os pontos inicias pelo metodo dado
+	yn = listaY[grau-1] # nas outras funcao eu fazia yn = y0, nesse caso preciso do ultimo yn e tn calculado pela funcao acima
 	tn = listaT[grau-1]
-	
-	if grau == 2 :
+	# essa parte apenas vai selecionar o grau e de acordo com o mesmo vai criar uma lista de coeficientes
+	if grau == 2 : 
 		coef_list = [3,-1]
 		haux = 2
 	if grau == 3 :
@@ -132,17 +132,17 @@ def adam_bashforth(expr,y0,t0,h,qnt,grau,metodo='nenhum'):
 		haux = 120960
 
 	for i in range(grau-1,qnt): # i começa do grau ja que foi calculado os y's anteriores com outros metodos
-		k = 0
-		aux = 0
-		for j in range(grau) :
+		k = 0 # responsavel por fazer
+		aux = 0 
+		for j in range(grau) : # o aux vai ser a soma dos coef(j)*y(i-k) onde j = [0...grau] e os y anteriores
 			aux += coef_list[j]*expr.subs([(t,listaT[i-k]),(y,listaY[i-k])])
 			k += 1
-		yn += aux*(h/haux)
+		yn += aux*(h/haux) # equacao do bash
 		tn += h
 		listaT.append(tn)
 		listaY.append(yn)
 
-def adam_multon(expr,y0,t0,h,qnt,grau,metodo='nenhum'):
+def adam_multon(expr,y0,t0,h,qnt,grau,metodo='nenhum'): # processo igual para todos os passos multiplos
 	if metodo != 'nenhum':
 		calcular_por_metodos_anteriores(expr,y0,t0,h,qnt,grau,metodo)
 	yn = listaY[grau-1]
@@ -174,12 +174,12 @@ def adam_multon(expr,y0,t0,h,qnt,grau,metodo='nenhum'):
 		k = 0
 		aux = 0
 		tn += h
-		for j in range(1,grau):
+		for j in range(1,grau): #  unica diferença é que aqui nao comeco do coef[0] ja que vou trata-lo a parte por ser implicito ok?
 			aux += coef_list[j]*expr.subs([(t,listaT[i-k]),(y,listaY[i-k])])
 			k += 1
-		aux += coef_list[0]*expr.subs(t,tn)
-		yn += aux*(h/haux)
-		yn = solve (Eq(y,yn),y)
+		aux += coef_list[0]*expr.subs(t,tn) # tratando do implicito 
+		yn += aux*(h/haux) # formula do multon
+		yn = solve (Eq(y,yn),y) # mesmo processo do euler implicito sem misterio
 		yn = yn[0]
 		listaT.append(tn)
 		listaY.append(yn)
